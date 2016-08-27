@@ -39,3 +39,39 @@ extension UITableViewObjectsDataSource: UITableViewDataSource {
     }
     
 }
+
+// MARK: - Paginable
+
+protocol PaginatorDelegate: class {
+    func paginator(paginator: Paginator, isNeedPerformFetchAtIndexPath indexPath: NSIndexPath) -> Bool
+    func paginator(paginator: Paginator, needFetchNextPageWithCompletion completion: (reachEnd: Bool) -> Void)
+}
+
+class Paginator: NSObject {
+    
+    // MARK: - Public Properties
+    
+    var isLoading = false
+    
+    var isReachEnd = false
+    
+    weak var delegate: PaginatorDelegate?
+    
+    init(delegate: PaginatorDelegate) {
+        self.delegate = delegate
+    }
+}
+
+extension Paginator: UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if delegate?.paginator(self, isNeedPerformFetchAtIndexPath: indexPath) == true && !isLoading && !isReachEnd {
+            self.isLoading = true
+            delegate?.paginator(self, needFetchNextPageWithCompletion: { [weak self] (reachEnd) in
+                self?.isLoading = false
+                self?.isReachEnd = reachEnd
+            })
+        }
+    }
+    
+}

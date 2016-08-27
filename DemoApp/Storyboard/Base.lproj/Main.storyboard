@@ -78,6 +78,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="iB7-Bs-XeO" id="FsM-Jm-URu"/>
+                                    <outlet property="delegate" destination="iB7-Bs-XeO" id="ZRj-fN-xRy"/>
                                 </connections>
                             </tableView>
                         </subviews>

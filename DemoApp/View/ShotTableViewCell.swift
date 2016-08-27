@@ -22,12 +22,11 @@ class ShotTableViewCell: UITableViewCell, Identifierable {
     // MARK: - Presentation
 
     func presentImage(image: Image?) {
+        backgroundImageView.image = nil
         if let hidpi = image?.hidpi, url = NSURL(string: hidpi) {
             backgroundImageView.hnk_setImageFromURL(url)
         } else if let normal = image?.normal, url = NSURL(string: normal) {
             backgroundImageView.hnk_setImageFromURL(url)
-        } else {
-            backgroundImageView.image = nil
         }
     }
     
