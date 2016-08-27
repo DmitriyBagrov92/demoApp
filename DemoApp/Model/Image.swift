@@ -8,6 +8,7 @@
 
 import Foundation
 import ObjectMapper
+import RealmSwift
 
 class Image: BaseModel {
     
@@ -21,6 +22,10 @@ class Image: BaseModel {
         hidpi <- map["hidpi"]
         normal <- map["normal"]
         teaser <- map["teaser"]
+        
+        try! Realm().write({
+            try! Realm().add(self)
+        })
     }
     
 }

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Realm
+import RealmSwift
 
 let kShotsPageSize = 10
 
@@ -46,7 +48,7 @@ class ShotsTableViewPresenter: UITableViewObjectsDataSource {
         Shot.shots(0, limit: kShotsPageSize) { [weak self] (error, shots) in
             sender?.endRefreshing()
             if let _ = error {
-                // TODO: Present Cached shots
+                self?.objects = [Array(try! Realm().objects(Shot.self).sorted("createdAt"))]
             } else if let shots = shots {
                 self?.objects = [shots]
             }

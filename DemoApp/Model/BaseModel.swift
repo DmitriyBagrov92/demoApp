@@ -11,7 +11,11 @@ public class BaseModel: Object, Mappable {
     
     // MARK: - Properties
     
-    dynamic var id: String?
+    dynamic var id = -1
+    
+    dynamic var createdAt: NSDate?
+    
+    dynamic var updatedAt: NSDate?
     
     // MARK: - Lifecycle
     
@@ -24,11 +28,11 @@ public class BaseModel: Object, Mappable {
     }
     
     required public init(realm: RLMRealm, schema: RLMObjectSchema) {
-        fatalError("init(realm:schema:) has not been implemented")
+        super.init(realm: realm, schema: schema)
     }
     
     required public init(value: AnyObject, schema: RLMSchema) {
-        fatalError("init(value:schema:) has not been implemented")
+        super.init(value: value, schema: schema)
     }
     
     public class func newInstance(map: Map) -> Mappable? {
@@ -37,6 +41,8 @@ public class BaseModel: Object, Mappable {
     
     public func mapping(map: Map) {
         id <- map["id"]
+        createdAt <- (map["created_at"], ISO8601DateTransform())
+        updatedAt <- (map["updated_at"], ISO8601DateTransform())
     }
     
     // MARK: - Network

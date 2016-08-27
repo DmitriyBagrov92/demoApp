@@ -26,6 +26,14 @@ class Shot: BaseModel {
         image <- map["images"]
         shotDescription <- map["description"]
         animated <- map["animated"]
+        
+        try! Realm().write({ 
+            try! Realm().add(self, update: true)
+        })
+    }
+    
+    override static func primaryKey() -> String? {
+        return "id"
     }
     
     // MARK: - Network
