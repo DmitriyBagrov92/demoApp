@@ -10,14 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // MARK: - IBOutlets: Objects
+    
+    @IBOutlet var shotsPresenter: ShotsTableViewPresenter!
+    
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Shot.shots(0, limit: 10) { (error, shots) in
-            print(error)
-        }
+        shotsPresenter.presentShots()
     }
 
 

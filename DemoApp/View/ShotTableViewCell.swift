@@ -7,7 +7,36 @@
 //
 
 import UIKit
+import Haneke
 
 class ShotTableViewCell: UITableViewCell, Identifierable {
+    
+    // MARK: - IBOutlets: Views
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    
+    // MARK: - Presentation
 
+    func presentImage(image: Image?) {
+        if let hidpi = image?.hidpi, url = NSURL(string: hidpi) {
+            backgroundImageView.hnk_setImageFromURL(url)
+        } else if let normal = image?.normal, url = NSURL(string: normal) {
+            backgroundImageView.hnk_setImageFromURL(url)
+        } else {
+            backgroundImageView.image = nil
+        }
+    }
+    
+    func presentTitle(title: String?) {
+        titleLabel.text = title
+    }
+    
+    func presentDescription(description: String?) {
+        descriptionLabel.text = description
+    }
+    
 }

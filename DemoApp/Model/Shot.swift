@@ -8,6 +8,7 @@
 
 import Foundation
 import ObjectMapper
+import RealmSwift
 
 class Shot: BaseModel {
     
@@ -17,11 +18,14 @@ class Shot: BaseModel {
     
     dynamic var shotDescription: String?
     
+    dynamic var animated = false
+    
     override func mapping(map: Map) {
         super.mapping(map)
         title <- map["title"]
         image <- map["images"]
         shotDescription <- map["description"]
+        animated <- map["animated"]
     }
     
     // MARK: - Network

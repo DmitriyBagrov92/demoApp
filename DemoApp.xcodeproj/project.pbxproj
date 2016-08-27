@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		93C690C6BD0372B186CFD26A /* Pods_DemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F155564B90621543DDEA3ED /* Pods_DemoApp.framework */; };
+		F698A8A11D71F8CB00BBC3B5 /* UITableView+Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = F698A8A01D71F8CB00BBC3B5 /* UITableView+Objects.swift */; };
+		F698A8A41D71FC0800BBC3B5 /* ShotsTableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F698A8A31D71FC0800BBC3B5 /* ShotsTableViewPresenter.swift */; };
 		F6D1D9801D708B3300658850 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D1D97F1D708B3300658850 /* AppDelegate.swift */; };
 		F6D1D9871D708B3300658850 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6D1D9861D708B3300658850 /* Assets.xcassets */; };
 		F6D1D9951D708B3300658850 /* DemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D1D9941D708B3300658850 /* DemoAppTests.swift */; };
@@ -44,6 +46,8 @@
 		0288BF2EA4929BB7B88906B3 /* Pods-DemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoApp/Pods-DemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		4F155564B90621543DDEA3ED /* Pods_DemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D12D3D715395EE22EC1FD4CE /* Pods-DemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoApp/Pods-DemoApp.release.xcconfig"; sourceTree = "<group>"; };
+		F698A8A01D71F8CB00BBC3B5 /* UITableView+Objects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Objects.swift"; sourceTree = "<group>"; };
+		F698A8A31D71FC0800BBC3B5 /* ShotsTableViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShotsTableViewPresenter.swift; sourceTree = "<group>"; };
 		F6D1D97C1D708B3300658850 /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6D1D97F1D708B3300658850 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6D1D9861D708B3300658850 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,6 +110,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F698A8A21D71FBE900BBC3B5 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F698A8A31D71FC0800BBC3B5 /* ShotsTableViewPresenter.swift */,
+			);
+			name = Presenter;
+			path = ../../../demoApp/DemoApp/Controllers/Presenter;
+			sourceTree = "<group>";
+		};
 		F6D1D9731D708B3300658850 = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +168,7 @@
 		F6D1D99F1D708BB800658850 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F698A8A21D71FBE900BBC3B5 /* Presenter */,
 				F6D1D9A21D708BEE00658850 /* ViewController.swift */,
 			);
 			path = Controllers;
@@ -214,6 +228,7 @@
 				F6D1D9B91D708D0800658850 /* NSNumber+Extension.swift */,
 				F6D1D9BA1D708D0800658850 /* String+Extension.swift */,
 				F6D7315D1D71F533002D371A /* UITableViewCell+Identifier.swift */,
+				F698A8A01D71F8CB00BBC3B5 /* UITableView+Objects.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -387,8 +402,10 @@
 				F6D1D9B71D708CE100658850 /* NumberTransform.swift in Sources */,
 				F6D1D9AF1D708C5D00658850 /* NetworkService.swift in Sources */,
 				F6D1D9C61D7175BE00658850 /* Image.swift in Sources */,
+				F698A8A11D71F8CB00BBC3B5 /* UITableView+Objects.swift in Sources */,
 				F6D7315C1D71F503002D371A /* ShotTableViewCell.swift in Sources */,
 				F6D1D9BB1D708D0800658850 /* NSNumber+Extension.swift in Sources */,
+				F698A8A41D71FC0800BBC3B5 /* ShotsTableViewPresenter.swift in Sources */,
 				F6D1D9B11D708C8900658850 /* Error.swift in Sources */,
 				F6D1D9C21D71740A00658850 /* URLConstants.swift in Sources */,
 				F6D1D9C01D7173D300658850 /* CommonConstants.swift in Sources */,
