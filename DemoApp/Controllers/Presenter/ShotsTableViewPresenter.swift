@@ -26,8 +26,25 @@ class ShotsTableViewPresenter: UITableViewObjectsDataSource {
     // MARK: - Public Methods
     
     func presentShots() {
+        configurePaginator()
+        configureRefreshControl()
+        
+        performFirstShotsFetch()
+    }
+    
+    func configurePaginator() {
         tableView?.delegate = paginator
-        Shot.shots(0, limit: 10) { [weak self] (error, shots) in
+    }
+    
+    func configureRefreshControl() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(performFirstShotsFetch(_:)), forControlEvents: .ValueChanged)
+        tableView?.addSubview(refreshControl)
+    }
+    
+    func performFirstShotsFetch(sender: UIRefreshControl? = nil) {
+        Shot.shots(0, limit: kShotsPageSize) { [weak self] (error, shots) in
+            sender?.endRefreshing()
             if let _ = error {
                 // TODO: Present Cached shots
             } else if let shots = shots {
